@@ -68,18 +68,13 @@
                 <data
                     android:host="@string/tracking_url"
                     android:pathPrefix="/" />
-            </intent-filter>
 
-
-            <!--Intent filter to handle Branch Deep Link-->
-            <intent-filter>
                 <data
-                    android:host="open"
-                    android:scheme="hypertrack.io" />
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
+                    android:host="trck.at"
+                    android:scheme="https" />
+                <data
+                    android:host="eta.fyi"
+                    android:scheme="http" />
             </intent-filter>
 
             <intent-filter>
@@ -111,14 +106,6 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".view.Placeline"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".view.Invite"
-            android:screenOrientation="portrait" />
-
-        <activity
             android:name=".view.Verify"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateVisible" />
@@ -136,15 +123,6 @@
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
                 <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
-            </intent-filter>
-        </receiver>
-
-        <!-- Branch install referrer tracking -->
-        <receiver
-            android:name="io.branch.referral.InstallListener"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="com.android.vending.INSTALL_REFERRER" />
             </intent-filter>
         </receiver>
 
@@ -179,20 +157,6 @@
         <!--   <meta-data
                android:name="io.fabric.ApiKey"
                android:value="YOUR_CRASHLYTICS_API_KEY" />-->
-
-        <!-- Branch init -->
-
-        <meta-data
-            android:name="io.branch.sdk.BranchKey"
-            android:value="@string/branch_live" />
-        <meta-data
-            android:name="io.branch.sdk.BranchKey.test"
-            android:value="@string/branch_test" />
-
-        <!-- Branch testing (TestMode "true" to simulate fresh installs on dev environment) -->
-        <meta-data
-            android:name="io.branch.sdk.TestMode"
-            android:value="false" />
 
         <!-- Register Services here -->
         <service
